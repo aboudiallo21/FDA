@@ -1,0 +1,12 @@
+# Data files
+*.csv
+*.xlsx
+*.rds
+
+# R history
+.Rhistory
+.RData
+
+# OS files
+.DS_Store
+Thumbs.db
