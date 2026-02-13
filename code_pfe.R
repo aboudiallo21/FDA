@@ -1,4 +1,4 @@
-setwd("C:/Users/Republic Of Computer/OneDrive - GENES/Documents/pfeENSAI")
+setwd("C:/Users/Republic Of Computer/OneDrive - GENES/Documents/pfeENSAI/FDA")
 
 ## ===== Régression fonctionnelle sur variétés fréquentes (présentes tous les ans) =====
 ## Hypothèse : courbe logistique
@@ -19,12 +19,8 @@ data <- readr::read_csv2("don.csv")
 data_clean <- data %>%
   dplyr::filter(annee >= 1995,
                 status == "Temoin",
-                fix_asymp == FALSE) %>%
-  dplyr::mutate(
-    t0     = lubridate::ymd(paste0(annee, "-04-15")),
-    delta  = as.integer(Date_plantation - t0),
-    b_corr = b + delta
-  )
+                fix_asymp == FALSE)
+
 
 ## 3) Garder seulement les variétés fréquentes
 var_keep <- c("ARKA","BINTJE","DESIREE","ESCORT","HD R1","HD R2","HD R3","HD R4")
@@ -46,7 +42,7 @@ f_disease <- function(a, xmid, scal, t){
 Ymat <- sapply(1:nrow(data_reg), function(i){
   f_disease(
     a    = data_reg$a[i],
-    xmid = data_reg$b_corr[i],
+    xmid = data_reg$b[i],
     scal = data_reg$c[i],
     t    = t
   )
