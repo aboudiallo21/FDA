@@ -141,12 +141,10 @@ par(mfrow = c(1, 1))
 # 1. Vérifier les dimensions
 dim(X_list$RR)    # doit être N x 121
 
-# 2. Vérifier que pffr a bien créé des termes ff()
-summary(fit_full)  # cherchez "ff(RR)" dans les smooth terms
-# La méthode la plus directe sur tes données
-levels(data_reg$variete)[1]
+# 2. le model
+summary(fit_full)  
 
-# Ou en regardant directement comment le modèle a codé la variable
+levels(data_reg$variete)[1]
 contrasts(data_reg$variete)
 
 
