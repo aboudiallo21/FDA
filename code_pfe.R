@@ -107,7 +107,7 @@ Y_hat     <- predict(fit_full)
 SST       <- sum((Y_mat - mean(Y_mat))^2)
 R2_global <- 1 - sum((Y_mat - Y_hat)^2) / SST
 
-cat("\n--- METRIQUES (BOSCHI ET AL.) ---")
+cat("\n METRIQUES (BOSCHI ET AL.) ")
 cat("\nR2 Global :", round(R2_global, 4), "\n")
 
 ## 5. VISUALISATION
